@@ -1,0 +1,141 @@
+server:
+  port: 8082
+
+logging:
+  level:
+    com.amazonaws.xray: DEBUG
+    org.springframework.boot: INFO
+    org.springframework.core : INFO
+
+spring:
+  application:
+    name: rabbitmq-consumer-service
+
+  rabbitmq:
+    addresses: localhost
+    username: labs
+    password: awesome-rabbitmq
+
+  cloud:
+    function:
+      definition: accountCreated;productSoldOut;productAmountAdded;productAmountSubtractFailed;paymentCreateFailed;paymentPaid;paymentCreated;orderPaymentCanceled;orderPaymentCreated;orderProductCanceled;orderProductCreated;
+    stream:
+      bindings:
+        # account
+        accountCreated-in-0:
+          destination: accountTopic
+          group: account.accountCreated
+          content-type: application/json
+        # cart
+        productSoldOut-in-0:
+          destination: productTopic
+          group: cart.productSoldOut
+          content-type: application/json
+        productAmountAdded-in-0:
+          destination: productTopic
+          group: cart.productAmountAdded
+          content-type: application/json
+        # order
+        productAmountSubtractFailed-in-0:
+          destination: productTopic
+          group: order.productAmountSubtractFailed
+          content-type: application/json
+        paymentCreateFailed-in-0:
+          destination: paymentTopic
+          group: order.paymentCreateFailed
+          content-type: application/json
+        paymentPaid-in-0:
+          destination: paymentTopic
+          group: order.paymentPaid
+          content-type: application/json
+        paymentCreated-in-0:
+          destination: paymentTopic
+          group: order.paymentCreated
+          content-type: application/json
+        # payment
+        orderPaymentCanceled-in-0:
+          destination: orderTopic
+          group: payment.orderCanceled
+          content-type: application/json
+        orderPaymentCreated-in-0:
+          destination: orderTopic
+          group: payment.orderCreated
+          content-type: application/json
+        # product
+        orderProductCanceled-in-0:
+          destination: orderTopic
+          group: product.orderCanceled
+          content-type: application/json
+        orderProductCreated-in-0:
+          destination: orderTopic
+          group: product.orderCreated
+          content-type: application/json
+      rabbit:
+        bindings:
+          # account
+          accountCreated-in-0:
+            consumer:
+              autoBindDlq: true
+              bindingRoutingKey: account.AccountCreated.#
+          # cart
+          productSoldOut-in-0:
+            consumer:
+              autoBindDlq: true
+              bindingRoutingKey: product.ProductSoldOut.#
+          productAmountAdded-in-0:
+            consumer:
+              autoBindDlq: true
+              bindingRoutingKey: product.ProductAmountAdded.#
+          # order
+          productAmountSubtractFailed-in-0:
+            consumer:
+              autoBindDlq: true
+              bindingRoutingKey: product.ProductAmountSubtractFailed.#
+          paymentCreateFailed-in-0:
+            consumer:
+              autoBindDlq: true
+              bindingRoutingKey: payment.PaymentCreateFailed.#
+          paymentPaid-in-0:
+            consumer:
+              autoBindDlq: true
+              bindingRoutingKey: payment.PaymentPaid.#
+          paymentCreated-in-0:
+            consumer:
+              autoBindDlq: true
+              bindingRoutingKey: payment.PaymentCreated.#
+          # payment
+          orderPaymentCanceled-in-0:
+            consumer:
+              autoBindDlq: true
+              bindingRoutingKey: order.OrderCanceled.#
+          orderPaymentCreated-in-0:
+            consumer:
+              autoBindDlq: true
+              bindingRoutingKey: order.OrderCreated.#
+          # product
+          orderProductCanceled-in-0:
+            consumer:
+              autoBindDlq: true
+              bindingRoutingKey: order.OrderCanceled.#
+          orderProductCreated-in-0:
+            consumer:
+              autoBindDlq: true
+              bindingRoutingKey: order.OrderCreated.#
+
+
+api:
+  account:
+    # url: http://apigateway:8090/account
+    url: http://localhost:8090/account
+  cart:
+    # url: http://apigateway:8090/cart
+    url: http://localhost:8090/cart
+  order:
+    # url: http://apigateway:8090/order
+    url: http://localhost:8090/order
+  payment:
+    # url: http://apigateway:8090/payment
+    url: http://localhost:8090/payment
+  product:
+    # url: http://apigateway:8090/product
+    url: http://localhost:8090/product
