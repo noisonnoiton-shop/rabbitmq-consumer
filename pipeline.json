@@ -1,4 +1,4 @@
-{ 
+{
     "pipeline": {
         "name": "rabbitmq-consumer-devsecops",
         "roleArn": "arn:aws:iam::170247361816:role/container-devsecops-wksp-codepipeline-service",
