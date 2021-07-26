@@ -1,7 +1,7 @@
 FROM openjdk:11-jre-slim
 # FROM openjdk:11-jre-slim-buster
 
-# MAINTAINER "noisonnoiton"
+# MAINTAINER "noisonnoiton" 
 LABEL maintainer="noisonnoiton"
 
 COPY target/rabbitmq-consumer-service-0.0.1-SNAPSHOT.jar app.jar
