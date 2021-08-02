@@ -33,19 +33,19 @@ public class AWSXrayConfig {
 		AWSXRay.setGlobalRecorder(globalRecorder);
 	}
 
-	@Bean
-	public FilterRegistrationBean TracingFilter() {
-		String from = null;
-		try {
-			from = InetAddress.getLocalHost().getHostName();
-		} catch (UnknownHostException e) {
-			from = "serverName";
-		}
-		FilterRegistrationBean registration = new FilterRegistrationBean();
-		registration.setFilter(new AWSXRayServletFilter(from));
-		registration.addUrlPatterns("/*");
-		return registration;
-	}
+	// @Bean
+	// public FilterRegistrationBean TracingFilter() {
+	// 	String from = null;
+	// 	try {
+	// 		from = InetAddress.getLocalHost().getHostName();
+	// 	} catch (UnknownHostException e) {
+	// 		from = "serverName";
+	// 	}
+	// 	FilterRegistrationBean registration = new FilterRegistrationBean();
+	// 	registration.setFilter(new AWSXRayServletFilter(from));
+	// 	registration.addUrlPatterns("/*");
+	// 	return registration;
+	// }
 
 	public class IgnoreContextMissingStrategy implements ContextMissingStrategy {
 		public IgnoreContextMissingStrategy() {

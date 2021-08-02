@@ -1,8 +1,9 @@
 package com.skcc.config;
 
-import com.amazonaws.xray.proxies.apache.http.HttpClientBuilder;
+// import com.amazonaws.xray.proxies.apache.http.HttpClientBuilder;
 
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
