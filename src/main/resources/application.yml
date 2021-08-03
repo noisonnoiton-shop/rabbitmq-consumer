@@ -8,6 +8,7 @@ logging:
     org.springframework.boot: INFO
     org.springframework.core : INFO
 
+
 spring:
   application:
     name: rabbitmq-consumer-service
