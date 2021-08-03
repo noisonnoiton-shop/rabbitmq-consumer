@@ -1,5 +1,6 @@
 package com.skcc.cart.service;
 
+import com.amazonaws.xray.spring.aop.XRayEnabled;
 import com.skcc.config.RestService;
 import com.skcc.product.message.ProductEvent;
 
@@ -9,7 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 
 @Component
-// @XRayEnabled
+@XRayEnabled
 public class CartService {
 
 	@Autowired
