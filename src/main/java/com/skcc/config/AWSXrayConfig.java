@@ -1,23 +1,18 @@
 package com.skcc.config;
 
-import java.net.InetAddress;
 import java.net.URL;
-import java.net.UnknownHostException;
 
 import javax.annotation.PostConstruct;
 
 import com.amazonaws.xray.AWSXRay;
 import com.amazonaws.xray.AWSXRayRecorder;
 import com.amazonaws.xray.AWSXRayRecorderBuilder;
-import com.amazonaws.xray.javax.servlet.AWSXRayServletFilter;
 import com.amazonaws.xray.plugins.EC2Plugin;
 import com.amazonaws.xray.plugins.EKSPlugin;
 import com.amazonaws.xray.strategy.ContextMissingStrategy;
 import com.amazonaws.xray.strategy.DefaultStreamingStrategy;
 import com.amazonaws.xray.strategy.sampling.LocalizedSamplingStrategy;
 
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
