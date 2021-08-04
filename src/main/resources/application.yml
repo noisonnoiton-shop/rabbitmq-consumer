@@ -124,6 +124,7 @@ spring:
               autoBindDlq: true
               bindingRoutingKey: order.OrderCreated.#
 
+
 api:
   account:
     # url: http://apigateway:8090/account
