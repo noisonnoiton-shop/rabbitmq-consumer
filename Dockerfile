@@ -1,4 +1,4 @@
-FROM 170247361816.dkr.ecr.ap-northeast-2.amazonaws.com/openjdk:11-jre-slim
+FROM openjdk:11-jre-slim
 # FROM openjdk:11-jre-slim-buster
 
 # MAINTAINER "noisonnoiton" 
