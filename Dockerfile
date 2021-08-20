@@ -1,5 +1,5 @@
 FROM openjdk:11-jre-slim-buster
-# FROM openjdk:latest
+# FROM openjdk:latest 
 
 # MAINTAINER "noisonnoiton" 
 LABEL maintainer="noisonnoiton"
