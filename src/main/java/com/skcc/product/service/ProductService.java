@@ -1,6 +1,6 @@
 package com.skcc.product.service;
 
-import com.amazonaws.xray.spring.aop.XRayEnabled;
+// import com.amazonaws.xray.spring.aop.XRayEnabled;
 import com.skcc.config.RestService;
 import com.skcc.order.message.OrderEvent;
 
@@ -10,7 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 
 @Component
-@XRayEnabled
+// @XRayEnabled
 public class ProductService {
 
 	@Autowired

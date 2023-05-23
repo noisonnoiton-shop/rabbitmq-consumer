@@ -1,6 +1,6 @@
 package com.skcc.config;
 
-import com.amazonaws.xray.spring.aop.XRayEnabled;
+// import com.amazonaws.xray.spring.aop.XRayEnabled;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-@XRayEnabled
+// @XRayEnabled
 public class RestService<T> {
 
   private RestTemplate restTemplate;

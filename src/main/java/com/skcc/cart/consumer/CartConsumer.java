@@ -2,7 +2,7 @@ package com.skcc.cart.consumer;
 
 import java.util.function.Consumer;
 
-import com.amazonaws.xray.spring.aop.XRayEnabled;
+// import com.amazonaws.xray.spring.aop.XRayEnabled;
 import com.skcc.cart.service.CartService;
 import com.skcc.product.message.ProductEvent;
 
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
-@XRayEnabled
+// @XRayEnabled
 @Slf4j
 public class CartConsumer {
 
